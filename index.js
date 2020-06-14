@@ -20,6 +20,12 @@
 // Main
 //====================================================
 
+img
+
+function preload(){
+
+}
+
 function setup(){
 	createCanvas(900,900);
 	background(0);
