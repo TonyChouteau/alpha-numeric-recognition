@@ -1,0 +1,1 @@
+ls -a > data.lx
