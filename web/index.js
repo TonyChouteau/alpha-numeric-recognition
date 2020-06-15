@@ -83,7 +83,12 @@ let fileList = [
 const PATH = "./processed-images/";
 
 let imgs = [];
-const net = new brain.NeuralNetwork();
+const config = {
+	hiddenLayers: [100,20], // array of ints for the sizes of the hidden layers in the network
+  };
+const net = new brain.NeuralNetwork(config);
+const size = 15;
+const iter = 1000;
 
 let graphicScreen = null;
 let last = null;
@@ -131,7 +136,7 @@ function setup(){
 
 	for (let i=0; i<fileList.length; i++){
 		console.log("Training with "+fileList[i]+" => "+fileList[i][0])
-		let p = createGraphics(15,15);
+		let p = createGraphics(size,size);
 		p.background(imgs[i]);
 		p.loadPixels();
 
@@ -161,7 +166,7 @@ function setup(){
 	//console.log(trainingDatas);
 
 	net.train(trainingDatas, {
-		iterations: 50,
+		iterations: iter,
 		log: detail => console.log(detail)
 	});
 
@@ -171,7 +176,7 @@ function setup(){
 
 	for (let i=0; i<fileList.length; i+=parseInt(fileList.length/10)){
 
-		let n = createGraphics(15,15);
+		let n = createGraphics(size,size);
 		n.background(imgs[i]);
 		n.loadPixels();
 
@@ -222,7 +227,7 @@ function keyPressed(){
 
 	lastPoint = null;
 	
-	let n = createGraphics(15,15);
+	let n = createGraphics(size,size);
 	
 	n.image(graphicScreen, 0, 0, n.width, n.height);
 	
