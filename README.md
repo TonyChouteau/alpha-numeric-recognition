@@ -43,8 +43,11 @@ On your Navigator, go to (open the console before, for now, it's a bit laggy) :\
 
 ## Example :
 
-Take this image of a number (900x900 pixels) :\
+Take this image of the number 5 (900x900 pixels) :\
 ![Drawing of the number 5](./data/numbers_v3/5_2020-6-17-0-16-43-11711.png)
 
-With the p5 library, we pre-process this image to a smaller sized image like 20x20 :\
+With the p5 library, we preprocess this image into a smaller image size such as 20x20 :\
 ![pre-processed-image of the number 5](./data/numbers_min_v3/5_2020-6-17-0-16-43-11797.png)
+
+Now we have a small image that can be represented as a 2D array of pixels, better yet, a 2D array of binary values (0: black, 1: white).\
+Thus, by sending this table to the input of a neural network preformed with a bunch of images, we can get the number that is drawn as the result
