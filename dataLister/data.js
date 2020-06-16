@@ -31,4 +31,4 @@ let fileList = [
 	"9_2020-6-17-0-17-7-35900.png",
 ]
 
-const PATH = "./imageGenerator/out/";
+const PATH = "./data/numbers_v3//";
