@@ -112,7 +112,7 @@ dist
 .vscode-test
 
 #Own
-./imageGenerator/out/*
-./imageGenerator/out-min/*
+imageGenerator/out/*
+imageGenerator/out-min/*
 
 # End of https://www.toptal.com/developers/gitignore/api/node

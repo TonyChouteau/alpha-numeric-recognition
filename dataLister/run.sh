@@ -1,5 +1,5 @@
 #ls -a ../data/numbers_v2 > data.lx
-DIR="./data/numbers_v2/"
+DIR="$1/"
 FILES="$DIR*"
 
 echo $0
@@ -12,3 +12,4 @@ do
 done
 
 echo "]" >> ./dataLister/data.js
+echo -e "\nconst PATH = \"$DIR\";" >> ./dataLister/data.js

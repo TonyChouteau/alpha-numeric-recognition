@@ -4,8 +4,6 @@
 
 //import fileList from "../dataListener/data";
 
-const PATH = "../data/numbers_v2/";
-
 let imgs = [];
 const config = {
 	hiddenLayers: [100,20], // array of ints for the sizes of the hidden layers in the network
