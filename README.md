@@ -39,5 +39,7 @@ On root : \
 ```serve -s ./```
 
 On your Navigator, go to (open the console before, for now, it's a bit laggy) :\
-```http://localhost:5000```\
+```http://localhost:5000```
 
+## Example :
+![Drawing of the number 5](./data/numbers_v3/5_2020-6-17-0-16-43-11711.png)
