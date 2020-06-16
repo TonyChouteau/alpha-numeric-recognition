@@ -77,19 +77,17 @@ public void keyPressed(){
   }
   lastPoint = null;
   
-  saveFrame("out/"+(i%10)+"_"+year()+"-"+month()+"-"+day()+"-"+hour()+"-"+minute()+"-"+second()+"-"+millis()+".png");
+  pg.save("out/"+(i%10)+"_"+year()+"-"+month()+"-"+day()+"-"+hour()+"-"+minute()+"-"+second()+"-"+millis()+".png");
+  displayMin();
+  saveFrame("out-min/"+(i%10)+"_"+year()+"-"+month()+"-"+day()+"-"+hour()+"-"+minute()+"-"+second()+"-"+millis()+".png");
   
   resetScreen();
   i++;
   println("Nombre : "+i%10);
 }
 
-public void draw(){
-  if (mode){
-    pg.endDraw();
-    image(pg, 0, 0, width, height);
-    pg.beginDraw();
-  } else {
+public void displayMin(){
+  noStroke();
     for (int i=0; i<size; i++){
       for (int j=0; j<size; j++){
         int c = 0;
@@ -100,5 +98,14 @@ public void draw(){
         rect(j*width/size, i*height/size, width/size, height/size);
       }
     }
+}
+
+public void draw(){
+  if (mode){
+    pg.endDraw();
+    image(pg, 0, 0, width, height);
+    pg.beginDraw();
+  } else {
+    displayMin();
   }
 }
