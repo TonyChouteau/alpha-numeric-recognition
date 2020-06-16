@@ -50,5 +50,5 @@ With the p5 library, we preprocess this image into a smaller image size such as 
 ![pre-processed-image of the number 5](./data/numbers_min_v3/5_2020-6-17-0-16-43-11797.png)
 
 Now we have a small image that can be represented as a 2D array of pixels, or even better, a 2D array of binary values (0: black, 1: white).\
-Thus, by sending this array to the input of a neural network network trained with a bunch of images, we can get the number that is drawn as the result :
+Thus, by sending this array to the input of a neural network network trained with a bunch of images, we can get the number that is drawn as the result :\
 ![The ANN recognize the number](./results/result.png)
