@@ -4,7 +4,7 @@
 
 //import fileList from "../dataListener/data";
 
-const PATH = "";
+const PATH = "../data/numbers_v2/";
 
 let imgs = [];
 const config = {
@@ -54,6 +54,7 @@ function setup(){
 	// }
 
 	//image(smallImgs[0], 0, 0, width, height);
+
 
 	let trainingDatas = [];
 

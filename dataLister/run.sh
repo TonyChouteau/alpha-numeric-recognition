@@ -4,7 +4,7 @@ FILES="$DIR*"
 
 echo $0
 
-echo "export let fileList = [" > ./dataLister/data.js
+echo "let fileList = [" > ./dataLister/data.js
 for f in $FILES
 do
   line="\t\"$f\","
