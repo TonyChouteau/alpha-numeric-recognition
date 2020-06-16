@@ -42,4 +42,9 @@ On your Navigator, go to (open the console before, for now, it's a bit laggy) :\
 ```http://localhost:5000```
 
 ## Example :
+
+Take this image of a number (900x900 pixels) :
 ![Drawing of the number 5](./data/numbers_v3/5_2020-6-17-0-16-43-11711.png)
+
+With the p5 library, we pre-process this image to a smaller sized image like 20x20 :
+![Drawing of the number 5](./data/numbers_min_v3/5_2020-6-17-0-16-43-11711.png)
