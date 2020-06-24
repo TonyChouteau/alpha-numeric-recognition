@@ -10,7 +10,7 @@ const config = {
 };
 const net = new brain.NeuralNetwork(config);
 const size = 15;
-const iter = 1000;
+const iter = 200;
 
 let graphicScreen = null;
 let last = null;
@@ -53,6 +53,9 @@ function setup(){
 
 	//image(smallImgs[0], 0, 0, width, height);
 
+	//========================
+	// Training the ANN
+	//========================
 
 	let trainingDatas = [];
 
@@ -78,7 +81,11 @@ function setup(){
 		//console.log(out);
 
 		trainingDatas.push({
-			input: p.pixels,
+			input: p.pixels.map((value, id) => {
+				if (id%4==0){
+					return value;
+				}
+			}),
 			output: out
 		});
 	}
@@ -96,6 +103,10 @@ function setup(){
 	const json = net.toJSON();
 	console.log(json);
 
+	//========================
+	// Testing the ANN
+	//========================
+
 	for (let i=0; i<fileList.length; i+=parseInt(fileList.length/10)){
 
 		let n = createGraphics(size,size);
@@ -104,15 +115,29 @@ function setup(){
 
 		console.log("Current : "+ fileList[i][0])
 		
-		let result = net.run(n.pixels);
+		let result = net.run(n.pixels.map((value, id) => {
+			if (id%4==0){
+				return value;
+			}
+		}));
 		console.log("Result : ");
 		console.log(result);
 
-		result = brain.likely(n.pixels, net);
+		result = brain.likely(n.pixels.map((value, id) => {
+			if (id%4==0){
+				return value;
+			}
+		}), net);
 		console.log("Result : "+result);
 	}
+
+	setInterval(guess, 1000);
 }
 
+
+//========================
+// Using the ANN
+//========================
 
 function mousePressed(){
 	if (mouseButton != "left"){
@@ -128,7 +153,7 @@ function mouseDragged(){
 	
 	let current = createVector(mouseX, mouseY);
 
-	graphicScreen.strokeWeight(100);
+	graphicScreen.strokeWeight(120);
 	graphicScreen.stroke(255);
 	graphicScreen.line(last.x, last.y, current.x, current.y);
 
@@ -146,21 +171,32 @@ function keyPressed(){
 		lastPoint = null;
 		return;
 	}
-
-	lastPoint = null;
 	
+	guess();
+}
+
+function guess(){
 	let n = createGraphics(size,size);
 	
 	n.image(graphicScreen, 0, 0, n.width, n.height);
 	
 	n.loadPixels();
 	
-	let result = net.run(n.pixels);
+	let result = net.run(n.pixels.map((value, id) => {
+		if (id%4==0){
+			return value;
+		}
+	}));
 	console.log("Result : ");
 	console.log(result);
 
-	result = brain.likely(n.pixels, net);
+	result = brain.likely(n.pixels.map((value, id) => {
+		if (id%4==0){
+			return value;
+		}
+	}), net);
 	console.log("Result : "+result);
+
 }
 
 function draw(){
