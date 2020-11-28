@@ -5,7 +5,7 @@ import random
 from utils import display
 from nn import loader
 
-def use_nn(image):
+def use_nn():
 	(train_images, train_labels), (test_images, test_labels) = loader.load_data()
 
 	#===========================================================
@@ -20,5 +20,6 @@ def use_nn(image):
 	#===========================================================
 
 	n = random.randint(0, len(test_images))
+	print(test_images[n].shape)
 	print(loaded.predict(np.array([test_images[n]])).argmax())
 	display.displayImage(test_images[n].reshape(28,28))
