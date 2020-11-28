@@ -32,8 +32,12 @@
 			?
 		</div>
 	</div>
+	<button id="button">Effacer</button>
 	<script>
 		$result = $("#result");
+		$("#button").on("click", () => {
+			resetBoard();
+		});
 	</script>
 </body>
 </html>
