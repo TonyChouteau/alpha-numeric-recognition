@@ -3,7 +3,6 @@ from flask_restful import Resource, reqparse
 
 import json
 
-from utils import jsonify
 from nn import rest_use
 
 class UseNN(Resource):
