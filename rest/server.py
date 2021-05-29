@@ -12,4 +12,5 @@ cors = CORS(app, resources={r"/": {"origins": "*"}})
 api.add_resource(rest_nn_use.UseNN, "/")
 
 def serve():
-	app.run(debug=True)
+	app.run(host="0.0.0.0", port=8090, ssl_context=("/etc/letsencrypt/live/vps.tonychouteau.fr/fullchain.pem", "/etc/letsencrypt/live/vps.tonychouteau.fr/privkey.pem"))
+
