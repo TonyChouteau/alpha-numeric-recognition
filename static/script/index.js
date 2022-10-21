@@ -44,7 +44,15 @@ function drawInMatrix(x, y) {
 	let x_index = Math.floor(x/25);
 	let y_index = Math.floor(y/25);
 
+	if (x_index < 0 || y_index < 0 || x_index >= G_MATRIX_SIZE || y_index >= G_MATRIX_SIZE) {
+		return;
+	}
+
 	g_matrix[y_index][x_index] = 1;
+
+    if (x_index < 1 || y_index < 1 || x_index >= G_MATRIX_SIZE-1 || y_index >= G_MATRIX_SIZE-1) {
+		return;
+	}
 
 	g_matrix[y_index+1][x_index] = min(1, g_matrix[y_index+1][x_index]+0.6);
 	g_matrix[y_index][x_index+1] = min(1, g_matrix[y_index][x_index+1]+0.6);
@@ -63,9 +71,14 @@ function mousePressed() {
 	drawInMatrix(mouseX, mouseY);
 }
 
-function keyPressed() {
+function resetBoard() {
 	resetMatrixValues();
 	background(BACKGROUND_COLOR);
+	$result.html("?");
+}
+
+function keyPressed() {
+	resetBoard();
 }
 
 function mouseDragged() {

@@ -21,8 +21,8 @@
 </head>
 <body>
 	<div id="header">
-		<div>Dessiner un chiffre, et je trouverai ce que vous avez dessiné !</div>
-		<div>Appuyer sur une touche pour effacer le dessin en cours.</div>
+		<div>Dessinez un chiffre, et je trouverai ce que vous avez dessiné !</div>
+		<div>Appuyez sur une touche pour effacer le dessin en cours.</div>
 	</div>
 	<div id="container">
 		<div id="canvas_container">
@@ -32,8 +32,12 @@
 			?
 		</div>
 	</div>
+	<button id="button">Effacer</button>
 	<script>
 		$result = $("#result");
+		$("#button").on("click", () => {
+			resetBoard();
+		});
 	</script>
 </body>
 </html>

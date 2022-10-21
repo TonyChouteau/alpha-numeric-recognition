@@ -35,6 +35,12 @@ body {
 	align-items: center;
 	justify-content: center;
 
+    padding-top: 10px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
 	width: 1000px;
 }
 
@@ -54,3 +60,13 @@ body {
 
 	font-size: 300px;
 }
+<<<<<<< HEAD
+=======
+#button {
+	border: none;
+	background: black;
+	color: white;
+	padding: 20px 150px;
+	border-radius: 5px;
+}
+>>>>>>> b540e7b878b5f20989d4867650ab1b34cc5fe684

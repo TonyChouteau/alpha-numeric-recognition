@@ -1,4 +1,4 @@
-const URL = 'http://127.0.0.1:5000/';
+const URL = 'https://vps.tonychouteau.fr:8090/';
 
 let $result;
 
